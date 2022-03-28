@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("estudiante")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EstudianteCotroller {
 
     private EstudianteService estudianteService;
@@ -33,6 +33,7 @@ public class EstudianteCotroller {
                 estudianteService.createEstudiante(estudianteRequest));
         return ResponseEntity.ok(estudianteResponse);
     }
+
 
     @GetMapping(value = "/{listar}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)

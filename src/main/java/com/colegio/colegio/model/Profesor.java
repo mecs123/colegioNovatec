@@ -10,15 +10,15 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 /**
- *  Estudiante
+ *  Profesor
  *
  */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name = "Estudiante")
-public class Estudiante {
+@Entity(name = "Profesor")
+public class Profesor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -26,8 +26,6 @@ public class Estudiante {
     private Long id;
     @Column(name = "nombre", nullable = false)
     public String nombre;
-    public String sexo;
     public int edad;
-    public double nota;
-    public int cantidadAsignatura;
+    public String jornda;
 }
