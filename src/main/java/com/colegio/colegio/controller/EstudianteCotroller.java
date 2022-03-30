@@ -1,6 +1,8 @@
 package com.colegio.colegio.controller;
 
 
+import com.colegio.colegio.Dto.Response.ColegioResponse;
+import com.colegio.colegio.exeptions.ColegioException;
 import com.colegio.colegio.mappers.MappersEstudianteDTO;
 import com.colegio.colegio.mappers.request.EstudianteRequest;
 import com.colegio.colegio.mappers.response.EstudianteResponse;
@@ -26,12 +28,12 @@ public class EstudianteCotroller {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<EstudianteResponse> createEncuesta(
-            @RequestBody EstudianteRequest estudianteRequest){
+    public ColegioResponse<EstudianteResponse> createEncuesta(
+            @RequestBody EstudianteRequest estudianteRequest) throws ColegioException {
         EstudianteResponse estudianteResponse =
         MappersEstudianteDTO.mappControllerDTO(
                 estudianteService.createEstudiante(estudianteRequest));
-        return ResponseEntity.ok(estudianteResponse);
+        return new ColegioResponse<>("Succes",String.valueOf(HttpStatus.OK),"Ok",estudianteResponse);
     }
 
 
